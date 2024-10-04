@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Marketplace</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-container, .model-container, .purchased-container, .withdraw-container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .model-item, .purchased-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .model-item button {
+            background-color: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 5px;
+        }
+
+        .model-item button:hover {
+            background-color: #218838;
+        }
+
+        .rating-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .rating-container input {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .withdraw-container {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Form to List a New AI Model -->
+    <div class="form-container">
+        <h2>List a New AI Model</h2>
+        <input type="text" id="name" placeholder="Model Name">
+        <input type="text" id="description" placeholder="Model Description">
+        <input type="number" id="price" placeholder="Price in ETH" step="0.01">
+        <button onclick="addNewModel()">List Model</button>
+    </div>
+
+    <!-- List of Available Models -->
+    <div class="model-container">
+        <h2>Available Models</h2>
+        <div id="modelsList"></div>
+    </div>
+
+    <!-- List of Purchased Models -->
+    <div class="purchased-container">
+        <h2>Purchased Models</h2>
+        <div id="purchasedModelsList"></div>
+    </div>
+
+    <!-- Withdraw Funds (for Creator) -->
+    <div class="withdraw-container">
+        <h2>Withdraw Your Funds</h2>
+        <button onclick="withdrawFunds()">Withdraw Funds</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
